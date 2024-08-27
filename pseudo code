@@ -1,0 +1,72 @@
+START
+    // Hard-coded username and password
+    SET USERNAME to "admin"
+    SET PASSWORD to "password123"
+
+    DECLARE inputUsername, inputPassword as STRING
+    DECLARE isLoggedIn as BOOLEAN and SET it to FALSE
+
+    // Login Loop
+    WHILE isLoggedIn is FALSE
+        PRINT "Enter username: "
+        READ inputUsername
+        PRINT "Enter password: "
+        READ inputPassword
+
+        // Check if input matches the hard-coded credentials
+        IF inputUsername is equal to USERNAME AND inputPassword is equal to PASSWORD THEN
+            SET isLoggedIn to TRUE
+            PRINT "Login successful. Welcome to my Simple App."
+        ELSE
+            PRINT "Invalid username or password. Please try again."
+        END IF
+    END WHILE
+
+    // Main Menu Loop
+    WHILE isLoggedIn is TRUE
+        PRINT "Select an action to perform:"
+        PRINT "1. Go to About Us Page"
+        PRINT "2. Go to Services Page"
+        PRINT "3. Go to Full Profile Page"
+        PRINT "4. Logout"
+        PRINT "Enter your choice (1-4): "
+        READ choice
+
+        // Perform action based on user choice
+        SWITCH choice
+            CASE 1:
+                PRINT "--- About Us Page ---"
+                PRINT "I am a C++ enthusiast who enjoys solving complex problems using this versatile language."
+                PRINT "The thing I enjoy most about C++ is its ability to give me full control over system resources while providing powerful abstractions."
+                BREAK
+            CASE 2:
+                PRINT "--- Services Page ---"
+                PRINT "I can offer services such as software development, debugging, and performance optimization using C++."
+                PRINT "I also provide tutoring sessions for those interested in learning C++ programming."
+                BREAK
+            CASE 3:
+                PRINT "--- Full Profile Page ---"
+                PRINT "Full Name: Fred Barasa"
+                PRINT "Year of Birth: 1995"
+                PRINT "Country: Kenya"
+                PRINT "Citizenship: Kenyan"
+                PRINT "City: Nairobi"
+                PRINT "University: XYZ University"
+                PRINT "Course: Computer Science"
+                PRINT "Unit Name: Advanced Programming"
+                PRINT "Hobbies: Coding, Reading, Hiking, Playing Chess"
+                BREAK
+            CASE 4:
+                PRINT "Logout successful."
+                SET isLoggedIn to FALSE // Log out and exit the menu loop
+                BREAK
+            DEFAULT:
+                PRINT "Invalid choice. Please select an option between 1 and 4."
+                BREAK
+        END SWITCH
+    END WHILE
+
+    // After logging out, prompt user to login again
+    PRINT "Please login again to continue."
+
+END
